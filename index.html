@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Projets Numériques - Big Five Solutions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio Production 2025 - Big Five Solutions</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
         * {
             margin: 0;
             padding: 0;
@@ -16,9 +18,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #0a0a0a;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 20px;
         }
 
@@ -63,7 +62,6 @@
         }
 
         .carousel {
-            display: flex;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
         }
@@ -71,9 +69,6 @@
         .slide {
             min-width: 100%;
             padding: 60px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
             animation: slideIn 0.6s ease-out;
         }
 
@@ -108,7 +103,7 @@
         }
 
         .slide-content {
-            max-width: 600px;
+            max-width: 100%;
         }
 
         .slide-number {
@@ -153,8 +148,6 @@
         }
 
         .feature-item {
-            display: flex;
-            align-items: flex-start;
             margin-bottom: 12px;
             font-size: 0.95em;
         }
@@ -180,8 +173,6 @@
         }
 
         .price-item {
-            display: flex;
-            justify-content: space-between;
             padding: 10px 0;
             border-bottom: 1px solid #eee;
             font-size: 0.95em;
@@ -205,7 +196,6 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            display: flex;
             gap: 20px;
             z-index: 10;
         }
@@ -219,9 +209,6 @@
             color: white;
             cursor: pointer;
             font-size: 1.2em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
@@ -239,7 +226,6 @@
             position: absolute;
             bottom: 30px;
             right: 30px;
-            display: flex;
             gap: 10px;
             z-index: 10;
         }
@@ -402,9 +388,23 @@
             font-style: italic;
             opacity: 0.7;
         }
+
+        .img-responsive {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .col-md-5 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
     </style>
 </head>
-<body>
+<body class="d-flex align-items-center justify-content-center">
     <div class="container">
         <div class="header">
             <h1>🚀 Portfolio Projets Numériques</h1>
@@ -412,411 +412,438 @@
         </div>
 
         <div class="slide-counter">
-            <span id="currentSlide">1</span> / <span id="totalSlides">5</span>
+            <span id="currentSlide">1</span> / <span id="totalSlides">7</span>
         </div>
 
         <div class="carousel-wrapper">
-            <div class="touch-hint">
-                👆 Swipe ou flèches
+                <div class="touch-hint">
+                    👆 Swipe ou flèches
+                </div>
+                <div class="carousel d-flex" id="carousel">
+                    <!-- Slide 1: Gestion des Stages -->
+                    <div class="slide slide-1 d-flex flex-column justify-content-center">
+                        <div class="slide-content">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="slide-number">01</div>
+                                        <h2>Plateforme de Gestion des Stages</h2>
+                                        <div class="slide-subtitle">Bracongo.cd - Numéro de Suivi Intégré</div>
+                                        <div class="badge">Suivi & Traçabilité</div>
+                                        <div class="slide-objective">
+                                            Centralisez et tracez l'intégralité du parcours des stagiaires avec des numéros de suivi uniques et une documentation automatisée.
+                                        </div>
+                                        <div class="slide-features">
+                                            <h3>✨ Fonctionnalités Clés</h3>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-check"></i>
+                                                <span>Génération automatique de numéros uniques</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-check"></i>
+                                                <span>Dashboard administrateur complet</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-check"></i>
+                                                <span>Notifications SMS/Email en temps réel</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-check"></i>
+                                                <span>Export reports PDF/Excel automatisés</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-check"></i>
+                                                <span>Historique complet et audit trail</span>
+                                            </div>
+                                        </div>
+                                        <div class="pricing-box">
+                                            <h3>💰 Modèle de Licence</h3>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Starter (50 max)</span>
+                                                <span class="value">80,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Professional (500)</span>
+                                                <span class="value">200,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Enterprise (illimité)</span>
+                                                <span class="value">450,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Setup initial</span>
+                                                <span class="value">150,000 FCFA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <img src="01.png" class="img-responsive" alt="">
+                                        <div class="example-link">
+                                            <h4>🔗 Exemple en ligne</h4>
+                                            <a href="https://bracongostages.bigfive.dev/" target="_blank">https://bracongostages.bigfive.dev/</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2: Mailchimp Office 365 -->
+                    <div class="slide slide-2 d-flex flex-column justify-content-center">
+                        <div class="slide-content">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="slide-number">02</div>
+                                        <h2>Synchronisation Mailchimp × Office 365</h2>
+                                        <div class="slide-subtitle">Intégration Automatisée CRM & Marketing</div>
+                                        <div class="badge">Intégration & Automation</div>
+                                        <div class="slide-objective">
+                                            Synchronisez vos données clients entre Mailchimp et Office 365 en temps réel. Plus de saisies manuelles, plus d'erreurs, plus de productivité.
+                                        </div>
+                                        <div class="slide-features">
+                                            <h3>✨ Fonctionnalités Clés</h3>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-sync"></i>
+                                                <span>Sync bidirectionnelle temps réel</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-sync"></i>
+                                                <span>Segmentation intelligente des contacts</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-sync"></i>
+                                                <span>Campagnes email automatisées</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-sync"></i>
+                                                <span>Gestion automatique des bounces</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-sync"></i>
+                                                <span>Reporting analytique avancé</span>
+                                            </div>
+                                        </div>
+                                        <div class="pricing-box">
+                                            <h3>💰 Modèle de Licence</h3>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Starter (10k)</span>
+                                                <span class="value">50,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Professional (50k)</span>
+                                                <span class="value">120,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Enterprise (illimité)</span>
+                                                <span class="value">300,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Frais intégration</span>
+                                                <span class="value">100,000 FCFA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <img src="02.png" class="img-responsive" alt="">
+                                        <div class="example-link placeholder">
+                                            <h4>🔗 Exemple</h4>
+                                            <p>Démo disponible sur demande</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3: Suivi des Notes -->
+                    <div class="slide slide-3 d-flex flex-column justify-content-center">
+                        <div class="slide-content">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="slide-number">03</div>
+                                        <h2>Plateforme Web de Suivi des Notes</h2>
+                                        <div class="slide-subtitle">Gestion Académique & Suivi Pédagogique</div>
+                                        <div class="badge">Éducation & Analytics</div>
+                                        <div class="slide-objective">
+                                            Une plateforme complète pour que les étudiants consultent leurs notes 24/7, que les professeurs gèrent les classes et que l'admin pilote tout le processus académique.
+                                        </div>
+                                        <div class="slide-features">
+                                            <h3>✨ Fonctionnalités Clés</h3>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>Portal étudiant 24/7 sécurisé</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>Dashboard professeur multi-classes</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>Génération automatique de relevés</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>SMS/Email notifications intelligentes</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>Analytics et prévisions de réussite</span>
+                                            </div>
+                                        </div>
+                                        <div class="pricing-box">
+                                            <h3>💰 Modèle de Licence</h3>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Établissement (500)</span>
+                                                <span class="value">120,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Standard (2000)</span>
+                                                <span class="value">350,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Premium (5000+)</span>
+                                                <span class="value">700,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Deployment</span>
+                                                <span class="value">200,000 FCFA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <img src="03.png" class="img-responsive" alt="">
+                                        <div class="example-link placeholder">
+                                            <h4>🔗 Exemple</h4>
+                                            <p>Démo disponible sur demande</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4: LMS avec Quiz -->
+                    <div class="slide slide-4 d-flex flex-column justify-content-center">
+                        <div class="slide-content">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="slide-number">04</div>
+                                        <h2>Logiciel de Suivi des Cours avec Quiz</h2>
+                                        <div class="slide-subtitle">Learning Management System (LMS) Complet</div>
+                                        <div class="badge">E-Learning & Gamification</div>
+                                        <div class="slide-objective">
+                                            Créez des cours interactifs, des quizz engageants et suivez la progression de chaque apprenant. Système de badges et certificats digitaux intégré.
+                                        </div>
+                                        <div class="slide-features">
+                                            <h3>✨ Fonctionnalités Clés</h3>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-book"></i>
+                                                <span>LMS complet avec création facile de contenu</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-book"></i>
+                                                <span>Quiz adaptatifs et auto-correctives</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-book"></i>
+                                                <span>Système de progression et badges</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-book"></i>
+                                                <span>Forum et chat intégrés pour collaboration</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-book"></i>
+                                                <span>Certificats digitaux automatisés</span>
+                                            </div>
+                                        </div>
+                                        <div class="pricing-box">
+                                            <h3>💰 Modèle de Licence</h3>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Starter (1 formateur)</span>
+                                                <span class="value">90,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Professional (5)</span>
+                                                <span class="value">250,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Enterprise (illimité)</span>
+                                                <span class="value">550,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Paramétrage</span>
+                                                <span class="value">120,000 FCFA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <img src="04.png" class="img-responsive" alt="">
+                                        <div class="example-link">
+                                            <h4>🔗 Exemple en ligne</h4>
+                                            <a href="https://jhouedanou.github.io/RevisionsPhysiqueChimieKarniella/" target="_blank">https://jhouedanou.github.io/RevisionsPhysiqueChimieKarniella/</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 5: POI Ecosystem -->
+                    <div class="slide slide-5 d-flex flex-column justify-content-center">
+                        <div class="slide-content">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="slide-number">05</div>
+                                        <h2>Écosystème d'Application pour POI</h2>
+                                        <div class="slide-subtitle">Progressive Web App & Application Mobile</div>
+                                        <div class="badge">Mobile & PWA</div>
+                                        <div class="slide-objective">
+                                            Solution complète pour la gestion des Points d'Intérêt (POI) avec une PWA moderne et une application mobile native. Plateforme disponible sur
+                                            <a href="https://new.dinorapp.com" target="_blank" class="text-white text-decoration-underline">new.dinorapp.com</a>
+                                        </div>
+                                        <div class="slide-features">
+                                            <h3>✨ Fonctionnalités Clés</h3>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                <span>Progressive Web App (PWA) responsive</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                <span>Application mobile iOS et Android</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                <span>Géolocalisation et cartographie interactive</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                <span>Mode hors ligne avec synchronisation</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                <span>Dashboard admin et analytics temps réel</span>
+                                            </div>
+                                        </div>
+                                        <div class="pricing-box">
+                                            <h3>💰 Modèle de Licence</h3>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">PME (50 salariés)</span>
+                                                <span class="value">110,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Standard (200)</span>
+                                                <span class="value">280,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Enterprise (500+)</span>
+                                                <span class="value">650,000 FCFA/mois</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Formation</span>
+                                                <span class="value">180,000 FCFA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <img src="05.png" class="img-responsive" alt="">
+                                        <div class="example-link placeholder">
+                                            <h4>🔗 Exemple</h4>
+                                            <p>Démo disponible sur demande</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                    <!-- Slide 7: Formations Développeur -->
+                    <div class="slide slide-1 d-flex flex-column justify-content-center">
+                        <div class="slide-content">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="slide-number">07</div>
+                                        <h2>Formations Développeur Web & Mobile</h2>
+                                        <div class="slide-subtitle">Formation Complète du Débutant à l'Expert</div>
+                                        <div class="badge">Formation & Mentorat</div>
+                                        <div class="slide-objective">
+                                            Programmes de formation intensifs pour devenir développeur web et mobile. Apprentissage pratique avec projets réels, mentorat personnalisé et accompagnement jusqu'à l'emploi.
+                                        </div>
+                                        <div class="slide-features">
+                                            <h3>✨ Formations Proposées</h3>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-code"></i>
+                                                <span>Développement Web Full-Stack (HTML, CSS, JavaScript, React, Node.js)</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                <span>Développement Mobile (React Native, Flutter)</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-database"></i>
+                                                <span>Backend & Bases de données (PHP, Python, MySQL, MongoDB)</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>Projets réels et portfolio professionnel</span>
+                                            </div>
+                                            <div class="feature-item d-flex align-items-start">
+                                                <i class="fas fa-certificate"></i>
+                                                <span>Certification + Accompagnement emploi/freelance</span>
+                                            </div>
+                                        </div>
+                                        <div class="pricing-box">
+                                            <h3>💰 Tarifs Formation</h3>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Bootcamp Web (3 mois)</span>
+                                                <span class="value">450,000 FCFA</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Formation Mobile (2 mois)</span>
+                                                <span class="value">350,000 FCFA</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Full-Stack Complet (6 mois)</span>
+                                                <span class="value">750,000 FCFA</span>
+                                            </div>
+                                            <div class="price-item d-flex justify-content-between">
+                                                <span class="label">Mentorat individuel (par mois)</span>
+                                                <span class="value">80,000 FCFA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <img src="formation-dev.png" class="img-responsive" alt="Formation développeur">
+                                        <div class="example-link">
+                                            <h4>🔗 Programme détaillé</h4>
+                                            <a href="#" target="_blank">Contactez-nous pour le programme complet</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls d-flex">
+                    <button class="btn-nav d-flex align-items-center justify-content-center" id="prevBtn" onclick="previousSlide()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="btn-nav d-flex align-items-center justify-content-center" id="nextBtn" onclick="nextSlide()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="dots d-flex">
+                    <div class="dot active" onclick="goToSlide(0)"></div>
+                    <div class="dot" onclick="goToSlide(1)"></div>
+                    <div class="dot" onclick="goToSlide(2)"></div>
+                    <div class="dot" onclick="goToSlide(3)"></div>
+                    <div class="dot" onclick="goToSlide(4)"></div>
+                    <div class="dot" onclick="goToSlide(5)"></div>
+                    <div class="dot" onclick="goToSlide(6)"></div>
+                </div>
             </div>
-
-            <div class="carousel" id="carousel">
-                <!-- Slide 1: Gestion des Stages -->
-                <div class="slide slide-1">
-                    <div class="slide-content">
-                        <div class="slide-number">01</div>
-                        <h2>Plateforme de Gestion des Stages</h2>
-                        <div class="slide-subtitle">Bracongo.cd - Numéro de Suivi Intégré</div>
-                        <div class="badge">Suivi & Traçabilité</div>
-                        
-                        <div class="slide-objective">
-                            Centralisez et tracez l'intégralité du parcours des stagiaires avec des numéros de suivi uniques et une documentation automatisée.
-                        </div>
-
-                        <div class="slide-features">
-                            <h3>✨ Fonctionnalités Clés</h3>
-                            <div class="feature-item">
-                                <i class="fas fa-check"></i>
-                                <span>Génération automatique de numéros uniques</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check"></i>
-                                <span>Dashboard administrateur complet</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check"></i>
-                                <span>Notifications SMS/Email en temps réel</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check"></i>
-                                <span>Export reports PDF/Excel automatisés</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check"></i>
-                                <span>Historique complet et audit trail</span>
-                            </div>
-                        </div>
-
-                        <div class="pricing-box">
-                            <h3>💰 Modèle de Licence</h3>
-                            <div class="price-item">
-                                <span class="label">Starter (50 max)</span>
-                                <span class="value">80,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Professional (500)</span>
-                                <span class="value">200,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Enterprise (illimité)</span>
-                                <span class="value">450,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Setup initial</span>
-                                <span class="value">150,000 FCFA</span>
-                            </div>
-                        </div>
-
-                        <div class="example-link">
-                            <h4>🔗 Exemple en ligne</h4>
-                            <a href="https://bracongostages.bigfive.dev/" target="_blank">https://bracongostages.bigfive.dev/</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 2: Mailchimp Office 365 -->
-                <div class="slide slide-2">
-                    <div class="slide-content">
-                        <div class="slide-number">02</div>
-                        <h2>Synchronisation Mailchimp × Office 365</h2>
-                        <div class="slide-subtitle">Intégration Automatisée CRM & Marketing</div>
-                        <div class="badge">Intégration & Automation</div>
-                        
-                        <div class="slide-objective">
-                            Synchronisez vos données clients entre Mailchimp et Office 365 en temps réel. Plus de saisies manuelles, plus d'erreurs, plus de productivité.
-                        </div>
-
-                        <div class="slide-features">
-                            <h3>✨ Fonctionnalités Clés</h3>
-                            <div class="feature-item">
-                                <i class="fas fa-sync"></i>
-                                <span>Sync bidirectionnelle temps réel</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-sync"></i>
-                                <span>Segmentation intelligente des contacts</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-sync"></i>
-                                <span>Campagnes email automatisées</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-sync"></i>
-                                <span>Gestion automatique des bounces</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-sync"></i>
-                                <span>Reporting analytique avancé</span>
-                            </div>
-                        </div>
-
-                        <div class="pricing-box">
-                            <h3>💰 Modèle de Licence</h3>
-                            <div class="price-item">
-                                <span class="label">Starter (10k)</span>
-                                <span class="value">50,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Professional (50k)</span>
-                                <span class="value">120,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Enterprise (illimité)</span>
-                                <span class="value">300,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Frais intégration</span>
-                                <span class="value">100,000 FCFA</span>
-                            </div>
-                        </div>
-
-                        <div class="example-link placeholder">
-                            <h4>🔗 Exemple</h4>
-                            <p>Démo disponible sur demande</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 3: Suivi des Notes -->
-                <div class="slide slide-3">
-                    <div class="slide-content">
-                        <div class="slide-number">03</div>
-                        <h2>Plateforme Web de Suivi des Notes</h2>
-                        <div class="slide-subtitle">Gestion Académique & Suivi Pédagogique</div>
-                        <div class="badge">Éducation & Analytics</div>
-                        
-                        <div class="slide-objective">
-                            Une plateforme complète pour que les étudiants consultent leurs notes 24/7, que les professeurs gèrent les classes et que l'admin pilote tout le processus académique.
-                        </div>
-
-                        <div class="slide-features">
-                            <h3>✨ Fonctionnalités Clés</h3>
-                            <div class="feature-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Portal étudiant 24/7 sécurisé</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Dashboard professeur multi-classes</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Génération automatique de relevés</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>SMS/Email notifications intelligentes</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>Analytics et prévisions de réussite</span>
-                            </div>
-                        </div>
-
-                        <div class="pricing-box">
-                            <h3>💰 Modèle de Licence</h3>
-                            <div class="price-item">
-                                <span class="label">Établissement (500)</span>
-                                <span class="value">120,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Standard (2000)</span>
-                                <span class="value">350,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Premium (5000+)</span>
-                                <span class="value">700,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Deployment</span>
-                                <span class="value">200,000 FCFA</span>
-                            </div>
-                        </div>
-
-                        <div class="example-link placeholder">
-                            <h4>🔗 Exemple</h4>
-                            <p>Démo disponible sur demande</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 4: LMS avec Quiz -->
-                <div class="slide slide-4">
-                    <div class="slide-content">
-                        <div class="slide-number">04</div>
-                        <h2>Logiciel de Suivi des Cours avec Quiz</h2>
-                        <div class="slide-subtitle">Learning Management System (LMS) Complet</div>
-                        <div class="badge">E-Learning & Gamification</div>
-                        
-                        <div class="slide-objective">
-                            Créez des cours interactifs, des quizz engageants et suivez la progression de chaque apprenant. Système de badges et certificats digitaux intégré.
-                        </div>
-
-                        <div class="slide-features">
-                            <h3>✨ Fonctionnalités Clés</h3>
-                            <div class="feature-item">
-                                <i class="fas fa-book"></i>
-                                <span>LMS complet avec création facile de contenu</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-book"></i>
-                                <span>Quiz adaptatifs et auto-correctives</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-book"></i>
-                                <span>Système de progression et badges</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-book"></i>
-                                <span>Forum et chat intégrés pour collaboration</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-book"></i>
-                                <span>Certificats digitaux automatisés</span>
-                            </div>
-                        </div>
-
-                        <div class="pricing-box">
-                            <h3>💰 Modèle de Licence</h3>
-                            <div class="price-item">
-                                <span class="label">Starter (1 formateur)</span>
-                                <span class="value">90,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Professional (5)</span>
-                                <span class="value">250,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Enterprise (illimité)</span>
-                                <span class="value">550,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Paramétrage</span>
-                                <span class="value">120,000 FCFA</span>
-                            </div>
-                        </div>
-
-                        <div class="example-link">
-                            <h4>🔗 Exemple en ligne</h4>
-                            <a href="https://jhouedanou.github.io/RevisionsPhysiqueChimieKarniella/" target="_blank">https://jhouedanou.github.io/RevisionsPhysiqueChimieKarniella/</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 5: POI Ecosystem -->
-                <div class="slide slide-5">
-                    <div class="slide-content">
-                        <div class="slide-number">05</div>
-                        <h2>Écosystème d'Application pour POI</h2>
-                        <div class="slide-subtitle">Progressive Web App & Application Mobile</div>
-                        <div class="badge">Mobile & PWA</div>
-                        
-                        <div class="slide-objective">
-                            Solution complète pour la gestion des Points d'Intérêt (POI) avec une PWA moderne et une application mobile native. Plateforme disponible sur <a href="https://new.dinorapp.com" target="_blank" style="color: #fff; text-decoration: underline;">new.dinorapp.com</a>
-                        </div>
-
-                        <div class="slide-features">
-                            <h3>✨ Fonctionnalités Clés</h3>
-                            <div class="feature-item">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>Progressive Web App (PWA) responsive</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>Application mobile iOS et Android</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>Géolocalisation et cartographie interactive</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>Mode hors ligne avec synchronisation</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>Dashboard admin et analytics temps réel</span>
-                            </div>
-                        </div>
-
-                        <div class="pricing-box">
-                            <h3>💰 Modèle de Licence</h3>
-                            <div class="price-item">
-                                <span class="label">PME (50 salariés)</span>
-                                <span class="value">110,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Standard (200)</span>
-                                <span class="value">280,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Enterprise (500+)</span>
-                                <span class="value">650,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Formation</span>
-                                <span class="value">180,000 FCFA</span>
-                            </div>
-                        </div>
-
-                        <div class="example-link placeholder">
-                            <h4>🔗 Exemple</h4>
-                            <p>Démo disponible sur demande</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 6: API Agregation -->
-                <div class="slide slide-6">
-                    <div class="slide-content">
-                        <div class="slide-number">06</div>
-                        <h2>Plateforme d'Agrégation d'APIs Métier</h2>
-                        <div class="slide-subtitle">Écosystème Digital Intégré & Automatisé</div>
-                        <div class="badge">Intégration Enterprise</div>
-                        
-                        <div class="slide-objective">
-                            Connectez toutes vos applications métier dans un écosystème unique. Dashboard unifié, synchronisation temps réel, alertes intelligentes et workflows automatisés.
-                        </div>
-
-                        <div class="slide-features">
-                            <h3>✨ Fonctionnalités Clés</h3>
-                            <div class="feature-item">
-                                <i class="fas fa-plug"></i>
-                                <span>Dashboard unifié multi-applications</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-plug"></i>
-                                <span>Synchronisation temps réel 24/7</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-plug"></i>
-                                <span>Workflows et alertes intelligentes</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-plug"></i>
-                                <span>Rapports consolidés et analytics avancés</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-plug"></i>
-                                <span>Backup & disaster recovery sécurisé</span>
-                            </div>
-                        </div>
-
-                        <div class="pricing-box">
-                            <h3>💰 Modèle de Licence</h3>
-                            <div class="price-item">
-                                <span class="label">Starter (5 intégrations)</span>
-                                <span class="value">100,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Professional (500 POI)</span>
-                                <span class="value">250,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Enterprise (illimité)</span>
-                                <span class="value">600,000 FCFA/mois</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="label">Configuration & déploiement</span>
-                                <span class="value">150,000 FCFA</span>
-                            </div>
-                        </div>
-
-                        <div class="example-link placeholder">
-                            <h4>🔗 Exemple</h4>
-                            <p>Démo disponible sur demande</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="controls">
-                <button class="btn-nav" id="prevBtn" onclick="previousSlide()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="btn-nav" id="nextBtn" onclick="nextSlide()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-
-            <div class="dots">
-                <div class="dot active" onclick="goToSlide(0)"></div>
-                <div class="dot" onclick="goToSlide(1)"></div>
-                <div class="dot" onclick="goToSlide(2)"></div>
-                <div class="dot" onclick="goToSlide(3)"></div>
-                <div class="dot" onclick="goToSlide(4)"></div>
-            </div>
-        </div>
 
         <div class="keyboard-hint">
             💡 Utilisez les flèches du clavier, les boutons ou swipez sur mobile
@@ -899,6 +926,8 @@
         // Initialize
         document.getElementById('totalSlides').textContent = totalSlides;
         updateSlide();
-    </script>
-</body>
+        </script>
+        <!-- Bootstrap JS Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
