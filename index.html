@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Projets Numériques - Big Five Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .slide-counter {
+            text-align: center;
+            color: white;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            min-height: 600px;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .slide.slide-1 {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+
+        .slide.slide-2 {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            color: white;
+        }
+
+        .slide.slide-3 {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            color: white;
+        }
+
+        .slide.slide-4 {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            color: white;
+        }
+
+        .slide.slide-5 {
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+            color: white;
+        }
+
+        .slide.slide-6 {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+        }
+
+        .slide-content {
+            max-width: 600px;
+        }
+
+        .slide-number {
+            font-size: 4em;
+            font-weight: bold;
+            opacity: 0.3;
+            margin-bottom: 10px;
+        }
+
+        .slide h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .slide-subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .slide-objective {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .slide-features {
+            margin-bottom: 25px;
+        }
+
+        .slide-features h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 5px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .feature-item i {
+            margin-right: 12px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .pricing-box {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+        }
+
+        .pricing-box h3 {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95em;
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-item .label {
+            font-weight: 600;
+        }
+
+        .price-item .value {
+            color: #f5576c;
+            font-weight: 700;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .btn-nav {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid white;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-nav:hover {
+            background: rgba(255,255,255,0.4);
+            transform: scale(1.1);
+        }
+
+        .btn-nav:active {
+            transform: scale(0.95);
+        }
+
+        .dots {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.3);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .keyboard-hint {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85em;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .slide {
+                padding: 40px 25px;
+                min-height: 600px;
+            }
+
+            .slide h2 {
+                font-size: 1.8em;
+            }
+
+            .slide-subtitle {
+                font-size: 1.1em;
+            }
+
+            .slide-number {
+                font-size: 2.5em;
+            }
+
+            .carousel-wrapper {
+                min-height: 500px;
+            }
+
+            .controls {
+                bottom: 20px;
+                gap: 15px;
+            }
+
+            .btn-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1em;
+            }
+
+            .dots {
+                bottom: 20px;
+                right: 20px;
+                gap: 8px;
+            }
+
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        .touch-hint {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            backdrop-filter: blur(10px);
+            z-index: 5;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Portfolio Projets Numériques</h1>
+            <p>Solutions Digitales pour l'Afrique de l'Ouest</p>
+        </div>
+
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">6</span>
+        </div>
+
+        <div class="carousel-wrapper">
+            <div class="touch-hint">
+                👆 Swipe ou flèches
+            </div>
+
+            <div class="carousel" id="carousel">
+                <!-- Slide 1: Gestion des Stages -->
+                <div class="slide slide-1">
+                    <div class="slide-content">
+                        <div class="slide-number">01</div>
+                        <h2>Plateforme de Gestion des Stages</h2>
+                        <div class="slide-subtitle">Bracongo.cd - Numéro de Suivi Intégré</div>
+                        <div class="badge">Suivi & Traçabilité</div>
+                        
+                        <div class="slide-objective">
+                            Centralisez et tracez l'intégralité du parcours des stagiaires avec des numéros de suivi uniques et une documentation automatisée.
+                        </div>
+
+                        <div class="slide-features">
+                            <h3>✨ Fonctionnalités Clés</h3>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Génération automatique de numéros uniques</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Dashboard administrateur complet</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Notifications SMS/Email en temps réel</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Export reports PDF/Excel automatisés</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Historique complet et audit trail</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-box">
+                            <h3>💰 Modèle de Licence</h3>
+                            <div class="price-item">
+                                <span class="label">Starter (50 max)</span>
+                                <span class="value">80,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Professional (500)</span>
+                                <span class="value">200,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Enterprise (illimité)</span>
+                                <span class="value">450,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Setup initial</span>
+                                <span class="value">150,000 FCFA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Mailchimp Office 365 -->
+                <div class="slide slide-2">
+                    <div class="slide-content">
+                        <div class="slide-number">02</div>
+                        <h2>Synchronisation Mailchimp × Office 365</h2>
+                        <div class="slide-subtitle">Intégration Automatisée CRM & Marketing</div>
+                        <div class="badge">Intégration & Automation</div>
+                        
+                        <div class="slide-objective">
+                            Synchronisez vos données clients entre Mailchimp et Office 365 en temps réel. Plus de saisies manuelles, plus d'erreurs, plus de productivité.
+                        </div>
+
+                        <div class="slide-features">
+                            <h3>✨ Fonctionnalités Clés</h3>
+                            <div class="feature-item">
+                                <i class="fas fa-sync"></i>
+                                <span>Sync bidirectionnelle temps réel</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-sync"></i>
+                                <span>Segmentation intelligente des contacts</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-sync"></i>
+                                <span>Campagnes email automatisées</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-sync"></i>
+                                <span>Gestion automatique des bounces</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-sync"></i>
+                                <span>Reporting analytique avancé</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-box">
+                            <h3>💰 Modèle de Licence</h3>
+                            <div class="price-item">
+                                <span class="label">Starter (10k)</span>
+                                <span class="value">50,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Professional (50k)</span>
+                                <span class="value">120,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Enterprise (illimité)</span>
+                                <span class="value">300,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Frais intégration</span>
+                                <span class="value">100,000 FCFA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Suivi des Notes -->
+                <div class="slide slide-3">
+                    <div class="slide-content">
+                        <div class="slide-number">03</div>
+                        <h2>Plateforme Web de Suivi des Notes</h2>
+                        <div class="slide-subtitle">Gestion Académique & Suivi Pédagogique</div>
+                        <div class="badge">Éducation & Analytics</div>
+                        
+                        <div class="slide-objective">
+                            Une plateforme complète pour que les étudiants consultent leurs notes 24/7, que les professeurs gèrent les classes et que l'admin pilote tout le processus académique.
+                        </div>
+
+                        <div class="slide-features">
+                            <h3>✨ Fonctionnalités Clés</h3>
+                            <div class="feature-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Portal étudiant 24/7 sécurisé</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Dashboard professeur multi-classes</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Génération automatique de relevés</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>SMS/Email notifications intelligentes</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Analytics et prévisions de réussite</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-box">
+                            <h3>💰 Modèle de Licence</h3>
+                            <div class="price-item">
+                                <span class="label">Établissement (500)</span>
+                                <span class="value">120,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Standard (2000)</span>
+                                <span class="value">350,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Premium (5000+)</span>
+                                <span class="value">700,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Deployment</span>
+                                <span class="value">200,000 FCFA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4: LMS avec Quiz -->
+                <div class="slide slide-4">
+                    <div class="slide-content">
+                        <div class="slide-number">04</div>
+                        <h2>Logiciel de Suivi des Cours avec Quiz</h2>
+                        <div class="slide-subtitle">Learning Management System (LMS) Complet</div>
+                        <div class="badge">E-Learning & Gamification</div>
+                        
+                        <div class="slide-objective">
+                            Créez des cours interactifs, des quizz engageants et suivez la progression de chaque apprenant. Système de badges et certificats digitaux intégré.
+                        </div>
+
+                        <div class="slide-features">
+                            <h3>✨ Fonctionnalités Clés</h3>
+                            <div class="feature-item">
+                                <i class="fas fa-book"></i>
+                                <span>LMS complet avec création facile de contenu</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-book"></i>
+                                <span>Quiz adaptatifs et auto-correctives</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-book"></i>
+                                <span>Système de progression et badges</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-book"></i>
+                                <span>Forum et chat intégrés pour collaboration</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-book"></i>
+                                <span>Certificats digitaux automatisés</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-box">
+                            <h3>💰 Modèle de Licence</h3>
+                            <div class="price-item">
+                                <span class="label">Starter (1 formateur)</span>
+                                <span class="value">90,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Professional (5)</span>
+                                <span class="value">250,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Enterprise (illimité)</span>
+                                <span class="value">550,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Paramétrage</span>
+                                <span class="value">120,000 FCFA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5: RH & Paie -->
+                <div class="slide slide-5">
+                    <div class="slide-content">
+                        <div class="slide-number">05</div>
+                        <h2>Système de Gestion RH & Paie Cloud</h2>
+                        <div class="slide-subtitle">Automatisation RH & Conformité Fiscale Locale</div>
+                        <div class="badge">RH & Paie</div>
+                        
+                        <div class="slide-objective">
+                            Automatisez la paie (CTS, IR, CNPS), gérez les congés, créez des bulletins digitalisés et restez compliant avec la fiscalité locale. Tout dans le cloud.
+                        </div>
+
+                        <div class="slide-features">
+                            <h3>✨ Fonctionnalités Clés</h3>
+                            <div class="feature-item">
+                                <i class="fas fa-users"></i>
+                                <span>Calcul automatique de paie conforme</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-users"></i>
+                                <span>Gestion congés, absences, heures supp</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-users"></i>
+                                <span>Bulletins digitalisés et sécurisés</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-users"></i>
+                                <span>Portal collaborateur personnel</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-users"></i>
+                                <span>Compliance fiscale et rapports DGI</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-box">
+                            <h3>💰 Modèle de Licence</h3>
+                            <div class="price-item">
+                                <span class="label">PME (50 salariés)</span>
+                                <span class="value">110,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Standard (200)</span>
+                                <span class="value">280,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Enterprise (500+)</span>
+                                <span class="value">650,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Formation</span>
+                                <span class="value">180,000 FCFA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 6: API Agregation -->
+                <div class="slide slide-6">
+                    <div class="slide-content">
+                        <div class="slide-number">06</div>
+                        <h2>Plateforme d'Agrégation d'APIs Métier</h2>
+                        <div class="slide-subtitle">Écosystème Digital Intégré & Automatisé</div>
+                        <div class="badge">Intégration Enterprise</div>
+                        
+                        <div class="slide-objective">
+                            Connectez toutes vos applications métier dans un écosystème unique. Dashboard unifié, synchronisation temps réel, alertes intelligentes et workflows automatisés.
+                        </div>
+
+                        <div class="slide-features">
+                            <h3>✨ Fonctionnalités Clés</h3>
+                            <div class="feature-item">
+                                <i class="fas fa-plug"></i>
+                                <span>Dashboard unifié multi-applications</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-plug"></i>
+                                <span>Synchronisation temps réel 24/7</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-plug"></i>
+                                <span>Workflows et alertes intelligentes</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-plug"></i>
+                                <span>Rapports consolidés et analytics avancés</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-plug"></i>
+                                <span>Backup & disaster recovery sécurisé</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-box">
+                            <h3>💰 Modèle de Licence</h3>
+                            <div class="price-item">
+                                <span class="label">Starter (5 intégrations)</span>
+                                <span class="value">100,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Professional (15)</span>
+                                <span class="value">280,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Enterprise (illimité)</span>
+                                <span class="value">700,000 FCFA/mois</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="label">Développement custom</span>
+                                <span class="value">Sur devis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn-nav" id="prevBtn" onclick="previousSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="btn-nav" id="nextBtn" onclick="nextSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="dots">
+                <div class="dot active" onclick="goToSlide(0)"></div>
+                <div class="dot" onclick="goToSlide(1)"></div>
+                <div class="dot" onclick="goToSlide(2)"></div>
+                <div class="dot" onclick="goToSlide(3)"></div>
+                <div class="dot" onclick="goToSlide(4)"></div>
+                <div class="dot" onclick="goToSlide(5)"></div>
+            </div>
+        </div>
+
+        <div class="keyboard-hint">
+            💡 Utilisez les flèches du clavier, les boutons ou swipez sur mobile
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const carousel = document.getElementById('carousel');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+        let startX = 0;
+        let endX = 0;
+
+        function updateSlide() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update counter
+            document.getElementById('currentSlide').textContent = currentSlide + 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+            } else {
+                currentSlide = 0;
+            }
+            updateSlide();
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+            } else {
+                currentSlide = totalSlides - 1;
+            }
+            updateSlide();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+
+        // Touch/Swipe support
+        carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const threshold = 50;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    previousSlide();
+                }
+            }
+        }
+
+        // Initialize
+        document.getElementById('totalSlides').textContent = totalSlides;
+        updateSlide();
+    </script>
+</body>
+</html>
