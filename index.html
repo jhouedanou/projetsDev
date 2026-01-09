@@ -1,1007 +1,351 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Portfolio Production 2025 - Big Five Solutions</title>
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-        }
-
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        .header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        .slide-counter {
-            text-align: center;
-            color: white;
-            font-size: 0.9em;
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .carousel-wrapper {
-            position: relative;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-            min-height: 600px;
-        }
-
-        .carousel {
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 100%;
-        }
-
-        .slide {
-            min-width: 100%;
-            padding: 60px 40px;
-            animation: slideIn 0.6s ease-out;
-        }
-
-        .slide.slide-1 {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-        }
-
-        .slide.slide-2 {
-            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
-            color: white;
-        }
-
-        .slide.slide-3 {
-            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
-            color: white;
-        }
-
-        .slide.slide-4 {
-            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
-            color: white;
-        }
-
-        .slide.slide-5 {
-            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
-            color: white;
-        }
-
-        .slide.slide-6 {
-            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
-            color: white;
-        }
-
-        .slide-content {
-            max-width: 100%;
-        }
-
-        .slide-number {
-            font-size: 4em;
-            font-weight: bold;
-            opacity: 0.3;
-            margin-bottom: 10px;
-        }
-
-        .slide h2 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .slide-subtitle {
-            font-size: 1.3em;
-            opacity: 0.9;
-            margin-bottom: 30px;
-            font-weight: 500;
-        }
-
-        .slide-objective {
-            background: rgba(255,255,255,0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        .slide-features {
-            margin-bottom: 25px;
-        }
-
-        .slide-features h3 {
-            font-size: 1.2em;
-            margin-bottom: 15px;
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-            text-underline-offset: 5px;
-        }
-
-        .feature-item {
-            margin-bottom: 12px;
-            font-size: 0.95em;
-        }
-
-        .feature-item i {
-            margin-right: 12px;
-            margin-top: 3px;
-            flex-shrink: 0;
-        }
-
-        .pricing-box {
-            background: rgba(255,255,255,0.95);
-            color: #333;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 25px;
-        }
-
-        .pricing-box h3 {
-            font-size: 1.1em;
-            margin-bottom: 15px;
-            color: #667eea;
-        }
-
-        .price-item {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 0.95em;
-        }
-
-        .price-item:last-child {
-            border-bottom: none;
-        }
-
-        .price-item .label {
-            font-weight: 600;
-        }
-
-        .price-item .value {
-            color: #f5576c;
-            font-weight: 700;
-        }
-
-        .controls {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            gap: 20px;
-            z-index: 10;
-        }
-
-        .btn-nav {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid white;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            cursor: pointer;
-            font-size: 1.2em;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-nav:hover {
-            background: rgba(255,255,255,0.4);
-            transform: scale(1.1);
-        }
-
-        .btn-nav:active {
-            transform: scale(0.95);
-        }
-
-        .dots {
-            position: absolute;
-            bottom: 30px;
-            right: 30px;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.4);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .dot.active {
-            background: white;
-            transform: scale(1.3);
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .keyboard-hint {
-            text-align: center;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.85em;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
-            }
-
-            .header p {
-                font-size: 1em;
-            }
-
-            .slide {
-                padding: 40px 25px;
-                min-height: 600px;
-            }
-
-            .slide h2 {
-                font-size: 1.8em;
-            }
-
-            .slide-subtitle {
-                font-size: 1.1em;
-            }
-
-            .slide-number {
-                font-size: 2.5em;
-            }
-
-            .carousel-wrapper {
-                min-height: 500px;
-            }
-
-            .controls {
-                bottom: 20px;
-                gap: 15px;
-            }
-
-            .btn-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1em;
-            }
-
-            .dots {
-                bottom: 20px;
-                right: 20px;
-                gap: 8px;
-            }
-
-            .dot {
-                width: 10px;
-                height: 10px;
-            }
-        }
-
-        .touch-hint {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            backdrop-filter: blur(10px);
-            z-index: 5;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.3);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin-bottom: 15px;
-        }
-
-        .example-link {
-            background: rgba(255,255,255,0.15);
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            border-left: 4px solid rgba(255,255,255,0.5);
-        }
-
-        .example-link h4 {
-            font-size: 0.9em;
-            margin-bottom: 8px;
-            opacity: 0.8;
-            font-weight: 600;
-        }
-
-        .example-link a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95em;
-            word-break: break-all;
-            transition: opacity 0.3s ease;
-            display: inline-block;
-        }
-
-        .example-link a:hover {
-            opacity: 0.7;
-            text-decoration: underline;
-        }
-
-        .example-link.placeholder {
-            opacity: 0.6;
-            border-left-color: rgba(255,255,255,0.3);
-        }
-
-        .example-link.placeholder p {
-            font-size: 0.9em;
-            font-style: italic;
-            opacity: 0.7;
-        }
-
-        .img-responsive {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .col-md-5 {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Big Five Abidjan - Janvier 2026</title>
+    <!--[if mso]>
+    <style type="text/css">
+        body, table, td {font-family: Arial, Helvetica, sans-serif !important;}
     </style>
+    <![endif]-->
 </head>
-<body class="d-flex align-items-center justify-content-center">
-    <div class="container">
-        <div class="header">
-            <h1>🚀 Portfolio Projets Numériques</h1>
-            <p>Solutions Digitales pour l'Afrique de l'Ouest</p>
-        </div>
 
-        <div class="slide-counter">
-            <span id="currentSlide">1</span> / <span id="totalSlides">8</span>
-        </div>
+<body style="margin: 0; padding: 0; background-color: #f4f4f4; font-family: Arial, Helvetica, sans-serif;">
 
-        <div class="carousel-wrapper">
-                <div class="touch-hint">
-                    👆 Swipe ou flèches
-                </div>
-                <div class="carousel d-flex" id="carousel">
-                    <!-- Slide 1: Gestion des Stages -->
-                    <div class="slide slide-1 d-flex flex-column justify-content-center">
-                        <div class="slide-content">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="slide-number">01</div>
-                                        <h2>Plateforme de Gestion des Stages</h2>
-                                        <div class="slide-subtitle">Bracongo.cd - Numéro de Suivi Intégré</div>
-                                        <div class="badge">Suivi & Traçabilité</div>
-                                        <div class="slide-objective">
-                                            Centralisez et tracez l'intégralité du parcours des stagiaires avec des numéros de suivi uniques et une documentation automatisée.
-                                        </div>
-                                        <div class="slide-features">
-                                            <h3>✨ Fonctionnalités Clés</h3>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-check"></i>
-                                                <span>Génération automatique de numéros uniques</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-check"></i>
-                                                <span>Dashboard administrateur complet</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-check"></i>
-                                                <span>Notifications SMS/Email en temps réel</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-check"></i>
-                                                <span>Export reports PDF/Excel automatisés</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-check"></i>
-                                                <span>Historique complet et audit trail</span>
-                                            </div>
-                                        </div>
-                                        <div class="pricing-box">
-                                            <h3>💰 Modèle de Licence</h3>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Starter (50 max)</span>
-                                                <span class="value">80,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Professional (500)</span>
-                                                <span class="value">200,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Enterprise (illimité)</span>
-                                                <span class="value">450,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Setup initial</span>
-                                                <span class="value">150,000 FCFA</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <img src="01.png" class="img-responsive" alt="">
-                                        <div class="example-link">
-                                            <h4>🔗 Exemple en ligne</h4>
-                                            <a href="https://bracongostages.bigfive.dev/" target="_blank">https://bracongostages.bigfive.dev/</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide 2: Mailchimp Office 365 -->
-                    <div class="slide slide-2 d-flex flex-column justify-content-center">
-                        <div class="slide-content">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="slide-number">02</div>
-                                        <h2>Synchronisation Mailchimp × Office 365</h2>
-                                        <div class="slide-subtitle">Intégration Automatisée CRM & Marketing</div>
-                                        <div class="badge">Intégration & Automation</div>
-                                        <div class="slide-objective">
-                                            Synchronisez vos données clients entre Mailchimp et Office 365 en temps réel. Plus de saisies manuelles, plus d'erreurs, plus de productivité.
-                                        </div>
-                                        <div class="slide-features">
-                                            <h3>✨ Fonctionnalités Clés</h3>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-sync"></i>
-                                                <span>Sync bidirectionnelle temps réel</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-sync"></i>
-                                                <span>Segmentation intelligente des contacts</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-sync"></i>
-                                                <span>Campagnes email automatisées</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-sync"></i>
-                                                <span>Gestion automatique des bounces</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-sync"></i>
-                                                <span>Reporting analytique avancé</span>
-                                            </div>
-                                        </div>
-                                        <div class="pricing-box">
-                                            <h3>💰 Modèle de Licence</h3>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Starter (10k)</span>
-                                                <span class="value">50,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Professional (50k)</span>
-                                                <span class="value">120,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Enterprise (illimité)</span>
-                                                <span class="value">300,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Frais intégration</span>
-                                                <span class="value">100,000 FCFA</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <img src="02.png" class="img-responsive" alt="">
-                                        <div class="example-link placeholder">
-                                            <h4>🔗 Exemple</h4>
-                                            <p>Démo disponible sur demande</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide 3: Suivi des Notes -->
-                    <div class="slide slide-3 d-flex flex-column justify-content-center">
-                        <div class="slide-content">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="slide-number">03</div>
-                                        <h2>Plateforme Web de Suivi des Notes</h2>
-                                        <div class="slide-subtitle">Gestion Académique & Suivi Pédagogique</div>
-                                        <div class="badge">Éducation & Analytics</div>
-                                        <div class="slide-objective">
-                                            Une plateforme complète pour que les étudiants consultent leurs notes 24/7, que les professeurs gèrent les classes et que l'admin pilote tout le processus académique.
-                                        </div>
-                                        <div class="slide-features">
-                                            <h3>✨ Fonctionnalités Clés</h3>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-graduation-cap"></i>
-                                                <span>Portal étudiant 24/7 sécurisé</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-graduation-cap"></i>
-                                                <span>Dashboard professeur multi-classes</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-graduation-cap"></i>
-                                                <span>Génération automatique de relevés</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-graduation-cap"></i>
-                                                <span>SMS/Email notifications intelligentes</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-graduation-cap"></i>
-                                                <span>Analytics et prévisions de réussite</span>
-                                            </div>
-                                        </div>
-                                        <div class="pricing-box">
-                                            <h3>💰 Modèle de Licence</h3>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Établissement (500)</span>
-                                                <span class="value">120,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Standard (2000)</span>
-                                                <span class="value">350,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Premium (5000+)</span>
-                                                <span class="value">700,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Deployment</span>
-                                                <span class="value">200,000 FCFA</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <img src="03.png" class="img-responsive" alt="">
-                                        <div class="example-link placeholder">
-                                            <h4>🔗 Exemple</h4>
-                                            <p>Démo disponible sur demande</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide 4: LMS avec Quiz -->
-                    <div class="slide slide-4 d-flex flex-column justify-content-center">
-                        <div class="slide-content">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="slide-number">04</div>
-                                        <h2>Logiciel de Suivi des Cours avec Quiz</h2>
-                                        <div class="slide-subtitle">Learning Management System (LMS) Complet</div>
-                                        <div class="badge">E-Learning & Gamification</div>
-                                        <div class="slide-objective">
-                                            Créez des cours interactifs, des quizz engageants et suivez la progression de chaque apprenant. Système de badges et certificats digitaux intégré.
-                                        </div>
-                                        <div class="slide-features">
-                                            <h3>✨ Fonctionnalités Clés</h3>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-book"></i>
-                                                <span>LMS complet avec création facile de contenu</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-book"></i>
-                                                <span>Quiz adaptatifs et auto-correctives</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-book"></i>
-                                                <span>Système de progression et badges</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-book"></i>
-                                                <span>Forum et chat intégrés pour collaboration</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-book"></i>
-                                                <span>Certificats digitaux automatisés</span>
-                                            </div>
-                                        </div>
-                                        <div class="pricing-box">
-                                            <h3>💰 Modèle de Licence</h3>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Starter (1 formateur)</span>
-                                                <span class="value">19,900 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Professional (5 formateurs)</span>
-                                                <span class="value">75,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Enterprise (illimité)</span>
-                                                <span class="value">350,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Paramétrage</span>
-                                                <span class="value">Gratuit (Starter) / 50,000 FCFA (Pro)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <img src="04.png" class="img-responsive" alt="">
-                                        <div class="example-link">
-                                            <h4>🔗 Exemple en ligne</h4>
-                                            <a href="https://jhouedanou.github.io/RevisionsPhysiqueChimieKarniella/" target="_blank">https://jhouedanou.github.io/RevisionsPhysiqueChimieKarniella/</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide 5: POI Ecosystem -->
-                    <div class="slide slide-5 d-flex flex-column justify-content-center">
-                        <div class="slide-content">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="slide-number">05</div>
-                                        <h2>Écosystème d'Application pour POI</h2>
-                                        <div class="slide-subtitle">Progressive Web App & Application Mobile</div>
-                                        <div class="badge">Mobile & PWA</div>
-                                        <div class="slide-objective">
-                                            Solution complète pour la gestion des Points d'Intérêt (POI) avec une PWA moderne et une application mobile native. Plateforme disponible sur
-                                            <a href="https://new.dinorapp.com" target="_blank" class="text-white text-decoration-underline">new.dinorapp.com</a>
-                                        </div>
-                                        <div class="slide-features">
-                                            <h3>✨ Fonctionnalités Clés</h3>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-mobile-alt"></i>
-                                                <span>Progressive Web App (PWA) responsive</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-mobile-alt"></i>
-                                                <span>Application mobile iOS et Android</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-mobile-alt"></i>
-                                                <span>Géolocalisation et cartographie interactive</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-mobile-alt"></i>
-                                                <span>Mode hors ligne avec synchronisation</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-mobile-alt"></i>
-                                                <span>Dashboard admin et analytics temps réel</span>
-                                            </div>
-                                        </div>
-                                        <div class="pricing-box">
-                                            <h3>💰 Modèle de Licence</h3>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">PME (50 salariés)</span>
-                                                <span class="value">110,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Standard (200)</span>
-                                                <span class="value">280,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Enterprise (500+)</span>
-                                                <span class="value">650,000 FCFA/mois</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Formation</span>
-                                                <span class="value">180,000 FCFA</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <img src="05.png" class="img-responsive" alt="">
-                                        <div class="example-link placeholder">
-                                            <h4>🔗 Exemple</h4>
-                                            <p>Démo disponible sur demande</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
+    <!-- Container principal -->
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
+        style="background-color: #f4f4f4;">
+        <tr>
+            <td align="center" style="padding: 20px 10px;">
 
-                    <!-- Slide 7: Formations Développeur -->
-                    <div class="slide slide-1 d-flex flex-column justify-content-center">
-                        <div class="slide-content">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="slide-number">07</div>
-                                        <h2>Formations Développeur Web & Mobile</h2>
-                                        <div class="slide-subtitle">Formation Complète du Débutant à l'Expert</div>
-                                        <div class="badge">Formation & Mentorat</div>
-                                        <div class="slide-objective">
-                                            Programmes de formation intensifs pour devenir développeur web et mobile. Apprentissage pratique avec projets réels, mentorat personnalisé et accompagnement jusqu'à l'emploi.
-                                        </div>
-                                        <div class="slide-features">
-                                            <h3>✨ Formations Proposées</h3>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-code"></i>
-                                                <span>Développement Web Full-Stack (HTML, CSS, JavaScript, React, Node.js)</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-mobile-alt"></i>
-                                                <span>Développement Mobile (React Native, Flutter)</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-database"></i>
-                                                <span>Backend & Bases de données (PHP, Python, MySQL, MongoDB)</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-graduation-cap"></i>
-                                                <span>Projets réels et portfolio professionnel</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-certificate"></i>
-                                                <span>Certification + Accompagnement emploi/freelance</span>
-                                            </div>
-                                        </div>
-                                        <div class="pricing-box">
-                                            <h3>💰 Tarifs Formation</h3>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Bootcamp Web (3 mois)</span>
-                                                <span class="value">450,000 FCFA</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Formation Mobile (2 mois)</span>
-                                                <span class="value">350,000 FCFA</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Full-Stack Complet (6 mois)</span>
-                                                <span class="value">750,000 FCFA</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Mentorat individuel (par mois)</span>
-                                                <span class="value">80,000 FCFA</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <img src="06.png" class="img-responsive" alt="Formation développeur">
-                                        <div class="example-link">
-                                            <h4>🔗 Programme détaillé</h4>
-                                            <a href="#" target="_blank">Contactez-nous pour le programme complet</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Email Container -->
+                <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0"
+                    style="background-color: #ffffff; max-width: 600px; width: 100%;">
 
-                    <!-- Slide 8: E-commerce Mobile -->
-                    <div class="slide slide-2 d-flex flex-column justify-content-center">
-                        <div class="slide-content">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="slide-number">08</div>
-                                        <h2>Système E-commerce Mobile</h2>
-                                        <div class="slide-subtitle">Solution Complète de Commerce Mobile</div>
-                                        <div class="badge">E-commerce & Paiement Mobile</div>
-                                        <div class="slide-objective">
-                                            Plateforme e-commerce complète optimisée pour le mobile avec gestion des stocks, paiements mobiles (Mobile Money), tracking de livraison et dashboard vendeur en temps réel.
-                                        </div>
-                                        <div class="slide-features">
-                                            <h3>✨ Fonctionnalités Clés</h3>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-shopping-cart"></i>
-                                                <span>Application mobile iOS & Android native</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-credit-card"></i>
-                                                <span>Intégration Mobile Money (MTN, Moov, Orange, Wave)</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-boxes"></i>
-                                                <span>Gestion intelligente des stocks et inventaire</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-truck"></i>
-                                                <span>Suivi de livraison GPS en temps réel</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-chart-line"></i>
-                                                <span>Dashboard vendeur avec analytics avancés</span>
-                                            </div>
-                                            <div class="feature-item d-flex align-items-start">
-                                                <i class="fas fa-users"></i>
-                                                <span>Système de fidélisation et points de récompense</span>
-                                            </div>
-                                        </div>
-                                        <div class="pricing-box">
-                                            <h3>💰 Modèle de Tarification</h3>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Starter (100 produits)</span>
-                                                <span class="value">À définir</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Business (1000 produits)</span>
-                                                <span class="value">À définir</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Enterprise (Illimité)</span>
-                                                <span class="value">À définir</span>
-                                            </div>
-                                            <div class="price-item d-flex justify-content-between">
-                                                <span class="label">Setup & Formation</span>
-                                                <span class="value">À définir</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <img src="07.jpg" class="img-responsive" alt="E-commerce Mobile">
-                                        <div class="example-link placeholder">
-                                            <h4>🔗SOVINGAB</h4>
-                                            <p><a href="https://play.google.com/store/apps/details?id=com.bfedition.sovingab&hl=fr">Lien vers Google Play</a></p>
-                                            <p><a href="https://apps.apple.com/fr/app/sovingab/id6474798928">Lien vers App Sote </a> </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="controls d-flex">
-                    <button class="btn-nav d-flex align-items-center justify-content-center" id="prevBtn" onclick="previousSlide()">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="btn-nav d-flex align-items-center justify-content-center" id="nextBtn" onclick="nextSlide()">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                <div class="dots d-flex">
-                    <div class="dot active" onclick="goToSlide(0)"></div>
-                    <div class="dot" onclick="goToSlide(1)"></div>
-                    <div class="dot" onclick="goToSlide(2)"></div>
-                    <div class="dot" onclick="goToSlide(3)"></div>
-                    <div class="dot" onclick="goToSlide(4)"></div>
-                    <div class="dot" onclick="goToSlide(5)"></div>
-                    <div class="dot" onclick="goToSlide(6)"></div>
-                    <div class="dot" onclick="goToSlide(7)"></div>
-                </div>
-            </div>
+                    <!-- Header avec Logo -->
+                    <tr>
+                        <td align="center" style="padding: 10px 40px; background-color: #ffffff;">
+                            <img src="big_five_solutions_logo.jpeg" alt="Big Five Abidjan" width="120"
+                                style="display: block; max-width: 120px; height: auto;">
+                        </td>
+                    </tr>
+                    <!-- Bandeau Titre -->
+                    <tr>
+                        <td align="center" style="padding: 30px 40px; background-color: #2E317F;">
+                            <h1
+                                style="margin: 0; color: #ffffff; font-size: 24px; font-weight: bold; line-height: 1.3;">
+                                BIG FIVE fête ses 13 ans !
+                            </h1>
+                            <p style="margin: 10px 0 0 0; color: #ffffff; font-size: 16px; opacity: 0.9;">
+                                Newsletter Janvier 2026
+                            </p>
+                        </td>
+                    </tr>
 
-        <div class="keyboard-hint">
-            💡 Utilisez les flèches du clavier, les boutons ou swipez sur mobile
-        </div>
-    </div>
+                    <!-- Introduction -->
+                    <tr>
+                        <td style="padding: 30px 40px;">
+                            <p style="margin: 0 0 15px 0; color: #000000; font-size: 15px; line-height: 1.7;">
+                                Bonjour à tous,
+                            </p>
+                            <p style="margin: 0 0 15px 0; color: #000000; font-size: 15px; line-height: 1.7;">
+                                <strong>BIG FIVE fête ses 13 ans cette année</strong> et comme nous sommes plutôt
+                                optimistes, nous espérons bien vous faire profiter de ce chiffre porte-bonheur pour que
+                                2026 soit une belle et heureuse année pour toutes et tous.
+                            </p>
+                            <p style="margin: 0 0 15px 0; color: #000000; font-size: 15px; line-height: 1.7;">
+                                Depuis notre dernière correspondance, le temps s'est écoulé. Nous en avons profité pour
+                                réfléchir, repenser notre organisation et notre offre afin de toujours apporter ce petit
+                                quelque chose en plus qui peut vous faire faire la différence, ce petit quelque chose en
+                                plus qui vous rend plus singulier.
+                            </p>
+                            <p style="margin: 0; color: #000000; font-size: 15px; line-height: 1.7;">
+                                Alors voilà, après ces quelques mois sans nouvelle, je viens vous en apporter
+                                quelques-unes qui j'espère ne vous laisseront pas indifférent.
+                            </p>
+                        </td>
+                    </tr>
 
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const carousel = document.getElementById('carousel');
-        const dots = document.querySelectorAll('.dot');
-        const totalSlides = slides.length;
-        let startX = 0;
-        let endX = 0;
+                    <!-- Séparateur -->
+                    <tr>
+                        <td style="padding: 0 40px;">
+                            <hr style="border: none; border-top: 3px solid #8B5BA1; margin: 10px 0;">
+                        </td>
+                    </tr>
 
-        function updateSlide() {
-            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            // Update dots
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-            
-            // Update counter
-            document.getElementById('currentSlide').textContent = currentSlide + 1;
-        }
+                    <!-- Section Yannick Boka -->
+                    <tr>
+                        <td style="padding: 25px 40px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                                <tr>
+                                    <td align="center">
+                                        <span
+                                            style="display: inline-block; background-color: #2E317F; color: #ffffff; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: bold;">
+                                            Grande Nouvelle
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
 
-        function nextSlide() {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-            } else {
-                currentSlide = 0;
-            }
-            updateSlide();
-        }
+                    <tr>
+                        <td style="padding: 0 40px 20px 40px;">
+                            <h2
+                                style="margin: 0 0 15px 0; color: #2E317F; font-size: 20px; font-weight: bold; text-align: center;">
+                                Un nouveau capitaine d'industrie à bord
+                            </h2>
+                            <p style="margin: 0 0 15px 0; color: #000000; font-size: 15px; line-height: 1.7;">
+                                La toute première, et une de taille, est que nous avons <strong>un nouveau capitaine
+                                    d'industrie à bord</strong>, en la personne de <a
+                                    href="https://ci.linkedin.com/in/yaniqboka" target="_blank"><strong
+                                        style="color: #8B5BA1;">Yannick Boka</strong>.</a> Certains d'entre vous le
+                                connaissent sans doute, "le passionné de Digital" se reconnaîtra.
+                            </p>
+                            <p style="margin: 0; color: #000000; font-size: 15px; line-height: 1.7;">
+                                Pour certains Yannick est un mentor, pour d'autres un tonton, pour nous un nouveau
+                                collaborateur hors pair. <strong>Si vous êtes en panne de stratégie, contactez-le lui ou
+                                    son équipe, vous ne serez pas déçu.</strong>
+                            </p>
+                        </td>
+                    </tr>
 
-        function previousSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-            } else {
-                currentSlide = totalSlides - 1;
-            }
-            updateSlide();
-        }
+                    <!-- Image Yannick -->
+                    <tr>
+                        <td align="center" style="padding: 0 40px 30px 40px;">
+                            <img src="socialmedia.jpg" alt="Yannick Boka" width="520"
+                                style="display: block; max-width: 100%; height: auto; border-radius: 10px;">
+                        </td>
+                    </tr>
 
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlide();
-        }
+                    <!-- Séparateur -->
+                    <tr>
+                        <td style="padding: 0 40px;">
+                            <hr style="border: none; border-top: 3px solid #8B5BA1; margin: 10px 0;">
+                        </td>
+                    </tr>
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') nextSlide();
-            if (e.key === 'ArrowLeft') previousSlide();
-        });
+                    <!-- Section Solutions -->
+                    <tr>
+                        <td style="padding: 25px 40px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                                <tr>
+                                    <td align="center">
+                                        <span
+                                            style="display: inline-block; background-color: #8B5BA1; color: #ffffff; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: bold;">
+                                            Focus Produits
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
 
-        // Touch/Swipe support
-        carousel.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
+                    <tr>
+                        <td align="center" style="padding: 0 40px 20px 40px;">
+                            <h2 style="margin: 0; color: #2E317F; font-size: 22px; font-weight: bold;">
+                                Des solutions, toujours des solutions…
+                            </h2>
+                            <p style="margin: 15px 0 0 0; color: #000000; font-size: 15px; line-height: 1.7;">
+                                Nous vous proposons un petit focus sur deux solutions qui ont vu le jour en 2025 dans le
+                                groupe et qui pourraient peut-être vous être utiles.
+                            </p>
+                        </td>
+                    </tr>
 
-        carousel.addEventListener('touchend', (e) => {
-            endX = e.changedTouches[0].clientX;
-            handleSwipe();
-        });
+                    <!-- Solution 1: Bracongo -->
+                    <tr>
+                        <td style="padding: 0 40px 25px 40px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
+                                style="background-color: #f8f8f8; border-radius: 10px; border-left: 4px solid #2E317F;">
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <!-- Image Bracongo -->
+                                        <img src="bracongoStages.png" alt="Plateforme Bracongo Stages" width="100%"
+                                            style="display: block; max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px;">
+                                        <h3
+                                            style="margin: 0 0 10px 0; color: #2E317F; font-size: 18px; font-weight: bold;">
+                                            Plateforme de Gestion des Stagiaires
+                                        </h3>
+                                        <p
+                                            style="margin: 0 0 5px 0; color: #8B5BA1; font-size: 13px; font-weight: bold;">
+                                            Commandée par Bracongo
+                                        </p>
+                                        <p style="margin: 15px 0; color: #000000; font-size: 14px; line-height: 1.6;">
+                                            <strong>La problématique :</strong> les demandes de stages affluent par
+                                            courrier sur le bureau du DRH, et souvent s'empilent avant d'être traitées
+                                            et redirigées vers le service concerné.
+                                        </p>
+                                        <p
+                                            style="margin: 0 0 15px 0; color: #000000; font-size: 14px; line-height: 1.6;">
+                                            <strong>Désormais c'est de l'histoire ancienne.</strong> Avec cette
+                                            plateforme, tout est automatisé ! Le traitement devient simple comme bonjour
+                                            puisqu'il est naturellement numérisé et déjà classé par service.
+                                        </p>
+                                        <p
+                                            style="margin: 0 0 15px 0; color: #000000; font-size: 14px; line-height: 1.6; font-style: italic;">
+                                            Si vous avez le même souci avec les demandes de stages, contactez-nous. Et
+                                            si vous aviez besoin d'un tel outil pour les offres d'emploi, n'hésitez pas
+                                            non plus car cette plateforme a plus d'une corde à son arc.
+                                        </p>
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td>
+                                                    <a href="https://bracongostages.bigfive.dev/" target="_blank"
+                                                        style="display: inline-block; background-color: #2E317F; color: #ffffff; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: bold;">
+                                                        Voir la Démo
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
 
-        function handleSwipe() {
-            const threshold = 50;
-            const diff = startX - endX;
+                    <!-- Solution 2: Sovingab -->
+                    <tr>
+                        <td style="padding: 0 40px 25px 40px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
+                                style="background-color: #f8f8f8; border-radius: 10px; border-left: 4px solid #8B5BA1;">
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <!-- Image Sovingab -->
+                                        <img src="Sovingab.jpg" alt="Application Sovingab" width="100%"
+                                            style="display: block; max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px;">
+                                        <h3
+                                            style="margin: 0 0 10px 0; color: #2E317F; font-size: 18px; font-weight: bold;">
+                                            Application Sovingab
+                                        </h3>
+                                        <p
+                                            style="margin: 0 0 5px 0; color: #8B5BA1; font-size: 13px; font-weight: bold;">
+                                            La première application E-Commerce dédiée au vin
+                                        </p>
+                                        <p
+                                            style="margin: 15px 0 15px 0; color: #000000; font-size: 14px; line-height: 1.6;">
+                                            L'utilisateur commande et se fait livrer chez lui grâce à un système qui
+                                            permet au distributeur partenaire de recevoir et traiter les commandes.
+                                        </p>
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="padding-right: 10px; vertical-align: middle;">
+                                                    <a href="https://play.google.com/store/apps/details?id=com.bfedition.sovingab&hl=fr"
+                                                        target="_blank" style="display: block; text-decoration: none;">
+                                                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
+                                                            alt="Disponible sur Google Play" height="56"
+                                                            style="display: block; height: 56px; width: auto;">
+                                                    </a>
+                                                </td>
+                                                <td style="vertical-align: middle;">
+                                                    <a href="https://apps.apple.com/fr/app/sovingab/id6474798928"
+                                                        target="_blank" style="display: block; text-decoration: none;">
+                                                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                                            alt="Télécharger dans l'App Store" height="40"
+                                                            style="display: block; height: 40px; width: auto;">
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
 
-            if (Math.abs(diff) > threshold) {
-                if (diff > 0) {
-                    nextSlide();
-                } else {
-                    previousSlide();
-                }
-            }
-        }
+                    <!-- Séparateur -->
+                    <tr>
+                        <td style="padding: 0 40px;">
+                            <hr style="border: none; border-top: 3px solid #8B5BA1; margin: 10px 0;">
+                        </td>
+                    </tr>
 
-        // Initialize
-        document.getElementById('totalSlides').textContent = totalSlides;
-        updateSlide();
-        </script>
-        <!-- Bootstrap JS Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+                    <!-- Section 2026 -->
+                    <tr>
+                        <td style="padding: 25px 40px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                                <tr>
+                                    <td align="center">
+                                        <span
+                                            style="display: inline-block; background-color: #2E317F; color: #ffffff; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: bold;">
+                                            À venir
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding: 0 40px 30px 40px;">
+                            <h2
+                                style="margin: 0 0 15px 0; color: #2E317F; font-size: 20px; font-weight: bold; text-align: center;">
+                                Quoi de neuf en 2026 ?
+                            </h2>
+                            <p
+                                style="margin: 0; color: #000000; font-size: 15px; line-height: 1.7; text-align: center;">
+                                Sous la tutelle de <strong>Jean-Luc et de son équipe</strong>, une application
+                                strictement événementielle est en chantier. Plus visuelle, plus simple d'utilisation,
+                                plus ergonomique, elle apportera une <strong style="color: #8B5BA1;">visibilité accrue à
+                                    tous les événements de votre pays</strong>. Nous vous en dirons plus dans quelques
+                                semaines…
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Voeux -->
+                    <tr>
+                        <td align="center" style="padding: 25px 40px; background-color: #2E317F;">
+                            <p style="margin: 0 0 15px 0; color: #ffffff; font-size: 16px; line-height: 1.6;">
+                                En attendant de vous revoir, nous vous souhaitons <strong>tous nos meilleurs
+                                    vœux</strong> à vous et à vos proches.
+                            </p>
+                            <p style="margin: 0; color: #ffffff; font-size: 15px; font-style: italic;">
+                                Amicalement,
+                            </p>
+                            <p style="margin: 10px 0 0 0; color: #ffffff; font-size: 18px; font-weight: bold;">
+                                La Team Big Five
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- CTA Contact -->
+                    <tr>
+                        <td align="center" style="padding: 25px 40px; background-color: #8B5BA1;">
+                            <p style="margin: 0 0 15px 0; color: #ffffff; font-size: 16px; font-weight: bold;">
+                                Une question ? Un projet ?
+                            </p>
+                            <a href="mailto:contacts@bigfivesolutions.com"
+                                style="display: inline-block; background-color: #ffffff; color: #8B5BA1; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-size: 14px; font-weight: bold;">
+                                Contactez-nous
+                            </a>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td align="center" style="padding: 25px 40px; background-color: #1a1a2e;">
+                            <p style="margin: 0 0 10px 0; color: #ffffff; font-size: 14px; font-weight: bold;">
+                                Big Five Abidjan
+                            </p>
+                            <p style="margin: 0; color: #ffffff; font-size: 12px; opacity: 0.7;">
+                                Solutions Digitales pour l'Afrique de l'Ouest
+                            </p>
+                            <p style="margin: 15px 0 0 0; color: #ffffff; font-size: 11px; opacity: 0.5;">
+                                © 2026 Big Five Abidjan - Tous droits réservés
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+                <!-- Fin Email Container -->
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+
 </html>
