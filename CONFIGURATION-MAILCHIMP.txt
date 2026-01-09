@@ -1,0 +1,99 @@
+═══════════════════════════════════════════════════════════════
+  CONFIGURATION MAILCHIMP - NEWSLETTER BIG FIVE JANVIER 2026
+═══════════════════════════════════════════════════════════════
+
+📋 SUJET À COPIER-COLLER DANS MAILCHIMP
+───────────────────────────────────────────────────────────────
+Big Five : 13 ans, 1 nouvelle star, 3 solutions
+
+
+📱 PRÉ-EN-TÊTE (Déjà intégré dans le code HTML)
+───────────────────────────────────────────────────────────────
+Yannick Boka rejoint l'équipe ! Découvrez nos plateformes :
+gestion stages (Bracongo), e-commerce vin, app événementielle 2026.
+
+
+🖼️ IMAGES À UPLOADER DANS CONTENT STUDIO
+───────────────────────────────────────────────────────────────
+Image 1: big_five_solutions_logo.jpeg
+Image 2: socialmedia.webp
+Image 3: bracongoStages.webp
+Image 4: 514964364_1335906178385117_2651582114709728995_n.webp
+Image 5: app.webp
+
+
+🔗 REMPLACEMENT DES URLs (Chercher/Remplacer dans Mailchimp)
+───────────────────────────────────────────────────────────────
+
+CHERCHER                  REMPLACER PAR
+────────────────────────  ─────────────────────────────────────
+src="big_five_solutions_logo.jpeg"
+                         → src="[URL DEPUIS CONTENT STUDIO]"
+
+src="socialmedia.webp"
+                         → src="[URL DEPUIS CONTENT STUDIO]"
+
+src="bracongoStages.webp"
+                         → src="[URL DEPUIS CONTENT STUDIO]"
+
+src="514964364_1335906178385117_2651582114709728995_n.webp"
+                         → src="[URL DEPUIS CONTENT STUDIO]"
+
+src="app.webp"
+                         → src="[URL DEPUIS CONTENT STUDIO]"
+
+
+⚙️ PARAMÈTRES DE CAMPAGNE MAILCHIMP
+───────────────────────────────────────────────────────────────
+Campaign Name:     Newsletter Big Five - 13 ans - Janvier 2026
+From Name:         Big Five Abidjan
+From Email:        [votre-email]@bigfivesolutions.com
+Subject:           Big Five : 13 ans, 1 nouvelle star, 3 solutions
+
+
+📅 PROGRAMMATION RECOMMANDÉE
+───────────────────────────────────────────────────────────────
+Jour:              Mardi 14 janvier 2026
+Heure:             09h00 (GMT+0 - Abidjan)
+Alternative:       Mercredi 15 janvier 2026, 09h00
+
+
+✅ CHECKLIST AVANT ENVOI
+───────────────────────────────────────────────────────────────
+☐ 5 images uploadées dans Content Studio
+☐ URLs d'images remplacées dans le code
+☐ Sujet configuré
+☐ From name et email configurés
+☐ Audience/liste sélectionnée
+☐ Test email envoyé à vous-même
+☐ Test vérifié sur Gmail
+☐ Test vérifié sur mobile
+☐ Tous les liens cliqués et testés:
+   ☐ LinkedIn Yannick Boka
+   ☐ Démo Bracongo (https://bracongostages.bigfive.dev/)
+   ☐ Google Play Sovingab
+   ☐ App Store Sovingab
+   ☐ Email contact (contacts@bigfivesolutions.com)
+☐ Images s'affichent toutes
+☐ Rendu mobile parfait
+☐ Tracking activé (opens + clicks)
+☐ Heure programmée
+
+
+🎯 OBJECTIFS DE PERFORMANCE
+───────────────────────────────────────────────────────────────
+Taux d'ouverture cible:    > 24%
+Taux de clics cible:       > 3%
+
+
+📊 APRÈS L'ENVOI
+───────────────────────────────────────────────────────────────
+1. Attendez 2-4 heures
+2. Consultez les statistiques dans Reports
+3. Analysez les liens les plus cliqués
+4. Notez les résultats pour la prochaine newsletter
+
+
+═══════════════════════════════════════════════════════════════
+                         FIN DU DOCUMENT
+═══════════════════════════════════════════════════════════════
